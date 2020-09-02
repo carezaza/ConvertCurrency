@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export const getCurrencyId = async () => {
-  const res = await axios.get("/api/get_countries_currency");
+export const getCurrencies = async () => {
+  const res = await axios.get("/api/get_currencies");
   return Object.values(res.data);
 };
 
-export const convertCurrency = async (amount, fromCurrency, toCurrency) => {
+export const getConvertCurrency = async (amount, fromCurrency, toCurrency) => {
   const query = fromCurrency + "_" + toCurrency;
   const res = await axios.get(
     `/api/convert_currency?q=${query}&amount=${amount}`

@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { API_KEY } = require("./config");
 
-// https://www.currencyconverterapi.com/
+// https://www.currencyconverterapi.com
 
 async function convertCurrency(ctx, next) {
   const { q, amount } = ctx.query;
@@ -39,7 +39,7 @@ async function convertCurrency(ctx, next) {
   }
 }
 
-async function getCountries(ctx, next) {
+async function getCurrencies(ctx, next) {
   const url = "https://free.currconv.com/api/v7/currencies?apiKey=" + API_KEY;
   try {
     const res = await axios.get(url);
@@ -52,4 +52,4 @@ async function getCountries(ctx, next) {
   }
 }
 
-module.exports = { convertCurrency, getCountries };
+module.exports = { convertCurrency, getCurrencies };

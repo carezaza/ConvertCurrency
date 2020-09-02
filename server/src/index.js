@@ -3,7 +3,10 @@ const Router = require("koa-router");
 const cors = require("koa-cors");
 const bodyParser = require("koa-bodyparser");
 
-const { convertCurrency, getCountries } = require("./services/convertCurrency");
+const {
+  convertCurrency,
+  getCurrencies,
+} = require("./services/convertCurrency");
 
 const app = new Koa();
 const router = new Router();
@@ -19,7 +22,7 @@ router.get("/api/convert_currency", convertCurrency, (ctx) => {
   ctx.body = ctx.result;
 });
 
-router.get("/api/get_countries_currency", getCountries, (ctx) => {
+router.get("/api/get_currencies", getCurrencies, (ctx) => {
   ctx.body = ctx.result;
 });
 

@@ -43,7 +43,10 @@
 </template>
 
 <script>
-import { getCurrencyId, convertCurrency } from "../services/CurrencyService.js";
+import {
+  getCurrencies,
+  getConvertCurrency,
+} from "../services/CurrencyService.js";
 
 export default {
   name: "ConvertCurrency",
@@ -68,7 +71,7 @@ export default {
         return (this.error = true);
       }
       this.loading = true;
-      const result = await convertCurrency(
+      const result = await getConvertCurrency(
         this.amount,
         this.fromCurrency,
         this.toCurrency
@@ -79,7 +82,7 @@ export default {
     },
   },
   beforeMount: async function() {
-    const res = await getCurrencyId();
+    const res = await getCurrencies();
     this.listCurrency = res;
   },
 };
